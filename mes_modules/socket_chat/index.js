@@ -4,7 +4,7 @@ let socketio = require('socket.io')
 module.exports.listen = function(server){
     let io = socketio.listen(server)
 
-    // ------------------------------ Traitement du socket
+    //socket
     let objUtilisateur = {}
     io.on('connection', function(socket){
     console.log(socket.id)
@@ -17,7 +17,7 @@ module.exports.listen = function(server){
     		io.sockets.emit("diffuser_list_user", objUtilisateur)
 
     	})
-    	///////////////////////////////////////traitement des messages
+    	//changement de texte 
     	socket.on("setMessage", function(data){
     		data.user = objUtilisateur[socket.id]
     		console.log("message reçu = " + util.inspect(data))
@@ -25,7 +25,7 @@ module.exports.listen = function(server){
     		socket.emit("valide_message", data)
 
     	})
-
+        //deconnection
     	socket.on("disconnect", function(){
 
     		delete objUtilisateur[socket.id]
