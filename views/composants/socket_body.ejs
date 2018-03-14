@@ -66,7 +66,7 @@ Pour établir une communication socket il faut un premier appel de
  }
 
 
-////////////////////////////////////////////////////////
+//enregistre message
 
  function enregistrement(){
 	 let elmUser = document.querySelector('#enregistrement input')
@@ -76,7 +76,8 @@ Pour établir une communication socket il faut un premier appel de
 	 socket.emit('setUser', {user : elmUser.value})
  }
 
-////////////////////////////////////////////////////////Transmettre un message
+
+//Transmettre un message
 
 function transmettreMessage(){
 	 let elmMessage = document.querySelector('#message_a_transmettre input')
@@ -85,7 +86,7 @@ function transmettreMessage(){
 	 socket.emit('setMessage', {message : elmMessage.value})
  } 
 
-//////////////////////////////////////////////////////// Afficher tableau users
+// Afficher tableau 
 
 function afficheTableauUsers(data){
 
@@ -104,7 +105,7 @@ function afficheTableauUsers(data){
 
 }
 
-////////////////////////////////////////////////////////Affiche les messages
+//Affiche les messages
 
 function afficherMessage(data, couleur){
 	let elmTr = document.createElement("TR")
